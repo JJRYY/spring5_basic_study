@@ -8,7 +8,7 @@ public class Assembler {
 
 	public Assembler() {
 		memberDao = new MemberDao();
-		selSvc = new MemberSelectAllService(memberDao);
+//		selSvc = new MemberSelectAllService(memberDao);
 		regSvc = new MemberRegisterService(memberDao);
 		pwdSvc = new ChangePasswordService();
 		pwdSvc.setMemberDao(memberDao);

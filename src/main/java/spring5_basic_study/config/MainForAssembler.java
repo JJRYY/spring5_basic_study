@@ -1,21 +1,26 @@
-package spring5_basic_study.di;
+package spring5_basic_study.config;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import spring5_basic_study.di.Assembler;
+import spring5_basic_study.di.ChangePasswordService;
+import spring5_basic_study.di.DuplicateMemberException;
+import spring5_basic_study.di.MemberNotFoundException;
+import spring5_basic_study.di.MemberRegisterService;
+import spring5_basic_study.di.MemberSelectAllService;
+import spring5_basic_study.di.RegisterRequest;
+import spring5_basic_study.di.WrongIdPasswordException;
+
 public class MainForAssembler {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		
 		while(true) {
 			System.out.println("명령어를 입력하세요.");
-			String command = null;
-			try {
-				command = reader.readLine();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			String command = reader.readLine();
+			
 			if(command.equalsIgnoreCase("exit")) {
 				System.out.println("종료합니다.");
 				break;
@@ -40,7 +45,7 @@ public class MainForAssembler {
 	
 	private static void processListCommand(String[] split) {
 		MemberSelectAllService selSvc = assembler.getMemberList();
-		selSvc.selectAll();
+//		selSvc.selectAll();
 	}
 	
 	private static void processNewCommand(String[] arg) {
